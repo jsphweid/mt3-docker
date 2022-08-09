@@ -303,6 +303,11 @@ def transcribe_anythin():
     return get_transcription_b64(piano_model, audio)
 
 
+@app.route("/")
+def hello_whirld():
+    return "Hello Whirld"
+
+
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 1234))
+    port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
