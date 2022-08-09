@@ -82,4 +82,4 @@ COPY model.gin /home/mt3user/
 COPY app.py /home/mt3user/app.py
 
 RUN pip install flask
-CMD ["gunicorn", "--bind", "0.0.0.0:80", "app:app"]
+CMD ["gunicorn3", "--bind", "0.0.0.0:80", "app:app"]
