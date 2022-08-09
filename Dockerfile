@@ -41,11 +41,11 @@ WORKDIR /home/mt3user
 # Downloading gcloud package
 RUN wget -O /tmp/google-cloud-sdk.tar.gz https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz
 # Installing the package
-RUN mkdir -p /usr/local/gcloud \
-  && tar -C /usr/local/gcloud -xvf /tmp/google-cloud-sdk.tar.gz \
-  && /usr/local/gcloud/google-cloud-sdk/install.sh
-# Adding the package path to local
-ENV PATH $PATH:/usr/local/gcloud/google-cloud-sdk/bin
+RUN mkdir -p /home/mt3user/gcloud \
+  && tar -C /home/mt3user/gcloud -xvf /tmp/google-cloud-sdk.tar.gz \
+  && /home/mt3user/gcloud/google-cloud-sdk/install.sh
+# Adding the package path to mt3user
+ENV PATH $PATH:/home/mt3user/gcloud/google-cloud-sdk/bin
 
 # NOTE: much of the next code stolen from magenta
 # https://github.com/magenta/mt3/blob/main/mt3/colab/music_transcription_with_transformers.ipynb
