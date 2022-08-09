@@ -85,6 +85,6 @@ RUN pip install flask
 
 # this allows gunicorn binary to be found
 # TODO: probably should just create a venv for all this
-ENV PATH $PATH:$HOME/.local/bin
+ENV PATH $PATH:/home/mt3user/.local/bin
 
 CMD ["gunicorn", "--bind", "0.0.0.0:80", "app:app"]
