@@ -1,6 +1,6 @@
 FROM nvidia/cuda:11.7.0-devel-ubuntu18.04
 
-RUN apt-get update && apt-get install -y libssl-dev openssl wget build-essential zlib1g-dev git libfluidsynth1 libasound2-dev libjack-dev libffi-dev libbz2-dev liblzma-dev libsqlite3-dev ffmpeg gunicorn3
+RUN apt-get update && apt-get install -y libssl-dev openssl wget build-essential zlib1g-dev git libfluidsynth1 libasound2-dev libjack-dev libffi-dev libbz2-dev liblzma-dev libsqlite3-dev ffmpeg
 RUN wget https://www.python.org/ftp/python/3.7.13/Python-3.7.13.tgz
 RUN tar xzvf Python-3.7.13.tgz && cd Python-3.7.13 && ./configure && make && make install
 
@@ -82,4 +82,9 @@ COPY model.gin /home/mt3user/
 COPY app.py /home/mt3user/app.py
 
 RUN pip install flask
-CMD ["gunicorn3", "--bind", "0.0.0.0:80", "app:app"]
+
+# this allows gunicorn binary to be found
+# TODO: probably should just create a venv for all this
+ENV PATH $PATH:$HOME/.local/bin
+
+CMD ["gunicorn", "--bind", "0.0.0.0:80", "app:app"]
