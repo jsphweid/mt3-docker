@@ -81,5 +81,6 @@ COPY mt3.gin /home/mt3user/
 COPY model.gin /home/mt3user/
 COPY app.py /home/mt3user/app.py
 
-RUN pip install flask gunicorn
+RUN pip install flask
+RUN apt-get update && apt-get install -y gunicorn
 CMD ["gunicorn", "--bind", "0.0.0.0:80", "app:app"]
