@@ -81,7 +81,7 @@ COPY mt3.gin /home/mt3user/
 COPY model.gin /home/mt3user/
 COPY app.py /home/mt3user/app.py
 
-RUN pip install flask
+RUN pip install flask gunicorn
 
 # this allows gunicorn binary to be found
 # TODO: probably should just create a venv for all this
