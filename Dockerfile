@@ -1,6 +1,6 @@
 FROM nvidia/cuda:11.7.0-devel-ubuntu18.04
 
-RUN apt-get update && apt-get install -y libssl-dev openssl wget build-essential zlib1g-dev git libfluidsynth1 libasound2-dev libjack-dev libffi-dev libbz2-dev liblzma-dev libsqlite3-dev ffmpeg gunicorn
+RUN apt-get update && apt-get install -y libssl-dev openssl wget build-essential zlib1g-dev git libfluidsynth1 libasound2-dev libjack-dev libffi-dev libbz2-dev liblzma-dev libsqlite3-dev ffmpeg gunicorn3
 RUN wget https://www.python.org/ftp/python/3.7.13/Python-3.7.13.tgz
 RUN tar xzvf Python-3.7.13.tgz && cd Python-3.7.13 && ./configure && make && make install
 
