@@ -1,6 +1,11 @@
+import base64
+import io
+import uuid
+
 import numpy as np
 import tensorflow.compat.v2 as tf
-from flask import Flask
+import werkzeug
+from flask import Flask, request
 import os
 
 import functools
@@ -275,12 +280,15 @@ def get_audio_from_request():
 
 
 class UnreadableAudio(werkzeug.exceptions.HTTPException):
-    code = 400
-    description = 'Audio file provided is not readable!'
+    pass
 
 
 app = Flask(__name__)
-app.register_error_handler(UnreadableAudio, handle_507)
+
+
+@app.errorhandler(UnreadableAudio)
+def handle_unreadable_audio(e):
+    return "Audio file provided is not readable!", 400
 
 
 @app.route("/transcribe-piano", methods=["POST"])
