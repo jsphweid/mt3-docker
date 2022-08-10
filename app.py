@@ -240,6 +240,7 @@ def get_transcription_b64(model: InferenceModel, audio) -> str:
         return base64.b64encode(data).decode('ascii')
     except:
         remove_file_if_exists(tmp_path)
+        raise NotImplementedError()
 
 
 def remove_file_if_exists(path: str):
@@ -294,13 +295,13 @@ def handle_unreadable_audio(e):
 @app.route("/transcribe-piano", methods=["POST"])
 def transcribe_piano():
     audio = get_audio_from_request()
-    return get_transcription_b64(piano_model, audio)
+    return {"data": get_transcription_b64(piano_model, audio)}
 
 
 @app.route("/transcribe-anything", methods=["POST"])
 def transcribe_anythin():
     audio = get_audio_from_request()
-    return get_transcription_b64(piano_model, audio)
+    return {"data": get_transcription_b64(mt3_model, audio)}
 
 
 @app.route("/")
