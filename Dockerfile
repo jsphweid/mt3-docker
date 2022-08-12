@@ -87,4 +87,4 @@ RUN pip install flask gunicorn
 # TODO: probably should just create a venv for all this
 ENV PATH $PATH:/home/mt3user/.local/bin
 
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--timeout", "180", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--timeout", "600", "app:app"]
