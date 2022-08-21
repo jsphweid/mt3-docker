@@ -26,8 +26,8 @@ Using a 3090 it should take less than a minute for most music files.
 
 Dockerfile is really messy. 
 
- [ ] It's not that efficient or production-ready... calls for model inference could probably benefit from batching I'd think. The model itself can probably be optimized in some way. This is not my wheelhouse but I'm trying to learn more
- [ ] Ideally it shouldn't pull from `devel` I think. I did this so the `ptxas` binary is available (I think jax uses it) but there's probably a better way
- [ ] python/pip installation can probably be greatly simplified
- [ ] t5x/mt3 installation was copied from [colab](https://github.com/magenta/mt3/blob/main/mt3/colab/music_transcription_with_transformers.ipynb) without much thought but it can probably be simplified a bit if we're only targeting GPUs.
+ - [ ] It's not that efficient or production-ready... calls for model inference could probably benefit from batching I'd think. The model itself can probably be optimized in some way. This is not my wheelhouse but I'm trying to learn more
+ - [ ] Ideally it shouldn't pull from `devel` I think. I did this so the `ptxas` binary is available (I think jax uses it) but there's probably a better way
+ - [ ] python/pip installation can probably be greatly simplified
+ - [ ] t5x/mt3 installation was copied from [colab](https://github.com/magenta/mt3/blob/main/mt3/colab/music_transcription_with_transformers.ipynb) without much thought but it can probably be simplified a bit if we're only targeting GPUs.
  
